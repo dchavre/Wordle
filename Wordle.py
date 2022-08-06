@@ -2,7 +2,10 @@ import os
 import random
 from termcolor import colored
 
-os.chdir('/Users/dchavre/Documents/VS Code/Projects/Wordle') # Changing the directory to allow for the larger random wordlist
+original_directory = os.getcwd() # Saving the original directory to switch back to afterwards.
+
+directory = input('Please paste your directory into the program: ') # Changing the directory to allow for the larger random wordlist
+os.chdir(directory)
 
 WORDLIST_FILENAME = "wordlist.txt"
 
@@ -112,4 +115,4 @@ if reset == 'y':
     word = word_selection(l)
     Wordle(word)
 
-os.chdir('/Users/dchavre/Documents/VS Code') # Changing the directory to allow for normal use afterwards
+os.chdir(original_directory) # Changing the directory to allow for normal use afterwards
